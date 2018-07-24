@@ -1,0 +1,34 @@
+{% extends 'moviechecker/base.html' %}
+{% load movie_extras %}
+
+
+{% block content %}
+
+    <h2>{{ first_week }}</h2>
+
+    {% for movie in first_week_movies %}
+        <div class="movie">
+            <div class="title">
+                {{ movie.title }}
+                <span class="runtime">{{ movie.title|get_runtime }}</span>
+                <img src="data:image/png;base64,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" width="30" height="30">
+                <span class="rt">{{ movie.title|get_rt }}</span>
+            </div>
+            <p>{{ first_week_movies|get_times:movie.title }} </p>
+        </div>
+    {% endfor %}
+
+    <h2>{{ second_week }}</h2>
+
+    {% for movie in second_week_movies %}
+        <div class="movie">
+            <div class="title">
+                {{ movie.title }}
+                <span class="runtime">{{ movie.title|get_runtime }}</span>
+                <img src="data:image/png;base64,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" width="30" height="30">
+                <span class="rt">{{ movie.title|get_rt }}</span>
+            </div>
+            <p>{{ second_week_movies|get_times:movie.title }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
